@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marieth Martin — SoCal Realtor | Buy, Sell &amp; Invest in the Inland Empire</title>
+<meta name="description" content="SoCal real estate agent Marieth Martin helps buyers, sellers and investors across LA County and the Inland Empire. Search listings and book a free 30-minute consultation.">
+<meta name="theme-color" content="#1c1526">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marieth Martin — SoCal Realtor">
+<meta property="og:description" content="Buy | Sell | Invest across LA County and the Inland Empire. Book a free 30-minute consultation.">
+<meta property="og:image" content="assets/img/hero.svg">
+
+<link rel="preload" href="assets/img/hero.svg" as="image">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#listings">Skip to listings</a>
+
+<!-- ============================ HEADER ============================ -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">MM</span>
+      <span class="brand-text">
+        <strong>Marieth Martin</strong>
+        <small>SoCal Realtor &middot; eHomeTeam</small>
+      </span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="#listings">Listings</a>
+      <a href="#neighborhoods">Neighborhoods</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-primary nav-cta" href="https://calendly.com/marieth-ehomesteam/30min" target="_blank" rel="noopener">Free Consultation</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero">
+    <img class="hero-bg" src="assets/img/hero.svg" alt="" aria-hidden="true">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Los Angeles County &middot; Inland Empire &middot; Orange County</p>
+      <h1 class="hero-title">
+        The keys to your next chapter<br class="br-lg">
+        are closer than you think.
+      </h1>
+      <p class="hero-sub">
+        I help first-time buyers, move-up families and investors win in SoCal's
+        toughest markets — with straight answers, bilingual service and a strategy
+        built around <em>your</em> numbers, not the market's hype.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="https://calendly.com/marieth-ehomesteam/30min" target="_blank" rel="noopener">
+          Schedule a Free Consultation
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#listings">Browse Listings</a>
+      </div>
+
+      <!-- ---------- Overlay search filter bar ---------- -->
+      <form class="search-bar" id="searchBar" novalidate>
+        <div class="field field-grow">
+          <label for="f-city">Location</label>
+          <select id="f-city" name="city">
+            <option value="">All of SoCal</option>
+            <option value="Ontario">Ontario</option>
+            <option value="Rancho Cucamonga">Rancho Cucamonga</option>
+            <option value="Riverside">Riverside</option>
+            <option value="Fontana">Fontana</option>
+            <option value="Chino Hills">Chino Hills</option>
+            <option value="Corona">Corona</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="f-beds">Beds</label>
+          <select id="f-beds" name="beds">
+            <option value="0">Any</option>
+            <option value="2">2+</option>
+            <option value="3">3+</option>
+            <option value="4">4+</option>
+            <option value="5">5+</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="f-baths">Baths</label>
+          <select id="f-baths" name="baths">
+            <option value="0">Any</option>
+            <option value="1">1+</option>
+            <option value="2">2+</option>
+            <option value="3">3+</option>
+          </select>
+        </div>
+
+        <div class="field field-wide">
+          <label for="f-min">Price range</label>
+          <div class="price-pair">
+            <select id="f-min" name="min" aria-label="Minimum price">
+              <option value="0">No min</option>
+              <option value="400000">$400k</option>
+              <option value="500000">$500k</option>
+              <option value="600000">$600k</option>
+              <option value="700000">$700k</option>
+              <option value="900000">$900k</option>
+            </select>
+            <span class="dash" aria-hidden="true">–</span>
+            <select id="f-max" name="max" aria-label="Maximum price">
+              <option value="0">No max</option>
+              <option value="600000">$600k</option>
+              <option value="700000">$700k</option>
+              <option value="800000">$800k</option>
+              <option value="1000000">$1M</option>
+              <option value="1500000">$1.5M</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn btn-primary search-submit" type="submit">
+          <span class="search-icon" aria-hidden="true"></span>
+          <span>Search</span>
+        </button>
+      </form>
+      <p class="search-note">Full MLS access — if it's listed anywhere in SoCal, I can show it to you.</p>
+    </div>
+  </section>
+
+  <!-- ============================ TRUST STRIP ============================ -->
+  <section class="stats" aria-label="Track record">
+    <div class="wrap stats-grid">
+      <div class="stat"><strong data-count="120">120</strong><span>Families moved</span></div>
+      <div class="stat"><strong data-count="18">18</strong><span>Avg. days on market</span></div>
+      <div class="stat"><strong data-count="99">99</strong><span>% of list price earned</span></div>
+      <div class="stat"><strong>Bilingual</strong><span>English &amp; Español</span></div>
+    </div>
+  </section>
+
+  <!-- ============================ FEATURED LISTINGS ============================ -->
+  <section class="section" id="listings">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow eyebrow-dark">Featured Listings</p>
+          <h2>Homes worth touring this week</h2>
+        </div>
+        <p class="results-line" id="resultsLine" role="status" aria-live="polite">Showing all 6 homes</p>
+      </div>
+
+      <!-- Active filter chips render here -->
+      <div class="chips" id="chips" hidden></div>
+
+      <div class="listing-grid" id="listingGrid">
+
+        <article class="card" data-city="Ontario" data-beds="3" data-baths="2" data-price="689000">
+          <div class="card-media">
+            <img src="assets/img/listing-ontario.svg" alt="Single-story home with a two-car garage in Ontario, CA" loading="lazy" width="800" height="600">
+            <span class="badge badge-hot">Open Sat 12–3</span>
+            <button class="fav" type="button" aria-label="Save this listing" aria-pressed="false"></button>
+          </div>
+          <div class="card-body">
+            <p class="price">$689,000</p>
+            <h3 class="card-title">1428 S Bon View Ave</h3>
+            <p class="card-loc">Ontario, CA 91762</p>
+            <ul class="specs">
+              <li><strong>3</strong> bd</li>
+              <li><strong>2</strong> ba</li>
+              <li><strong>1,540</strong> sqft</li>
+            </ul>
+            <p class="card-note">Turn-key starter with a permitted ADU pad — strong first-time buyer play.</p>
+            <a class="card-cta" href="#contact">Schedule a tour <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="card" data-city="Rancho Cucamonga" data-beds="4" data-baths="3" data-price="915000">
+          <div class="card-media">
+            <img src="assets/img/listing-rancho.svg" alt="Two-story home backing the foothills in Rancho Cucamonga, CA" loading="lazy" width="800" height="600">
+            <span class="badge">New</span>
+            <button class="fav" type="button" aria-label="Save this listing" aria-pressed="false"></button>
+          </div>
+          <div class="card-body">
+            <p class="price">$915,000</p>
+            <h3 class="card-title">7820 Etiwanda Ave</h3>
+            <p class="card-loc">Rancho Cucamonga, CA 91739</p>
+            <ul class="specs">
+              <li><strong>4</strong> bd</li>
+              <li><strong>3</strong> ba</li>
+              <li><strong>2,410</strong> sqft</li>
+            </ul>
+            <p class="card-note">Etiwanda school boundary, paid-off solar, no Mello-Roos.</p>
+            <a class="card-cta" href="#contact">Schedule a tour <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="card" data-city="Riverside" data-beds="3" data-baths="2" data-price="575000">
+          <div class="card-media">
+            <img src="assets/img/listing-riverside.svg" alt="Spanish-style home with tile roof in Riverside, CA" loading="lazy" width="800" height="600">
+            <span class="badge badge-cool">Price improved</span>
+            <button class="fav" type="button" aria-label="Save this listing" aria-pressed="false"></button>
+          </div>
+          <div class="card-body">
+            <p class="price">$575,000</p>
+            <h3 class="card-title">5104 Jurupa Ave</h3>
+            <p class="card-loc">Riverside, CA 92504</p>
+            <ul class="specs">
+              <li><strong>3</strong> bd</li>
+              <li><strong>2</strong> ba</li>
+              <li><strong>1,320</strong> sqft</li>
+            </ul>
+            <p class="card-note">$15k under comps after a two-week reduction. Seller will credit closing costs.</p>
+            <a class="card-cta" href="#contact">Schedule a tour <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="card" data-city="Fontana" data-beds="4" data-baths="3" data-price="749500">
+          <div class="card-media">
+            <img src="assets/img/listing-fontana.svg" alt="Modern two-story home in Sierra Lakes, Fontana, CA" loading="lazy" width="800" height="600">
+            <button class="fav" type="button" aria-label="Save this listing" aria-pressed="false"></button>
+          </div>
+          <div class="card-body">
+            <p class="price">$749,500</p>
+            <h3 class="card-title">16240 Sierra Lakes Pkwy</h3>
+            <p class="card-loc">Fontana, CA 92336</p>
+            <ul class="specs">
+              <li><strong>4</strong> bd</li>
+              <li><strong>3</strong> ba</li>
+              <li><strong>2,180</strong> sqft</li>
+            </ul>
+            <p class="card-note">Loft, downstairs bedroom and a yard big enough for the pool you keep pinning.</p>
+            <a class="card-cta" href="#contact">Schedule a tour <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="card" data-city="Chino Hills" data-beds="5" data-baths="4" data-price="1150000">
+          <div class="card-media">
+            <img src="assets/img/listing-chino.svg" alt="Large hillside home in Chino Hills, CA" loading="lazy" width="800" height="600">
+            <span class="badge">Luxury</span>
+            <button class="fav" type="button" aria-label="Save this listing" aria-pressed="false"></button>
+          </div>
+          <div class="card-body">
+            <p class="price">$1,150,000</p>
+            <h3 class="card-title">2960 Woodview Rd</h3>
+            <p class="card-loc">Chino Hills, CA 91709</p>
+            <ul class="specs">
+              <li><strong>5</strong> bd</li>
+              <li><strong>4</strong> ba</li>
+              <li><strong>3,050</strong> sqft</li>
+            </ul>
+            <p class="card-note">Multi-gen layout with a full downstairs suite and canyon views off the deck.</p>
+            <a class="card-cta" href="#contact">Schedule a tour <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="card" data-city="Corona" data-beds="3" data-baths="2" data-price="629000">
+          <div class="card-media">
+            <img src="assets/img/listing-corona.svg" alt="Ranch-style home with mature landscaping in Corona, CA" loading="lazy" width="800" height="600">
+            <span class="badge badge-hot">Investor pick</span>
+            <button class="fav" type="button" aria-label="Save this listing" aria-pressed="false"></button>
+          </div>
+          <div class="card-body">
+            <p class="price">$629,000</p>
+            <h3 class="card-title">1145 Grand Blvd</h3>
+            <p class="card-loc">Corona, CA 92882</p>
+            <ul class="specs">
+              <li><strong>3</strong> bd</li>
+              <li><strong>2</strong> ba</li>
+              <li><strong>1,610</strong> sqft</li>
+            </ul>
+            <p class="card-note">Detached garage zoned for conversion — rents pencil at roughly $2,900/mo.</p>
+            <a class="card-cta" href="#contact">Schedule a tour <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="empty" id="emptyState" hidden>
+        <h3>No homes match those filters — yet.</h3>
+        <p>New inventory hits the MLS daily and roughly a third of my closings never make it to a public site. Tell me what you're looking for and I'll send matches the day they list.</p>
+        <div class="empty-actions">
+          <button class="btn btn-primary" type="button" id="resetFilters">Clear filters</button>
+          <a class="btn btn-outline" href="#contact">Set up a custom search</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ NEIGHBORHOOD EXPERTISE ============================ -->
+  <section class="section section-alt" id="neighborhoods">
+    <div class="wrap hood-layout">
+      <div class="hood-copy">
+        <p class="eyebrow eyebrow-dark">Local Expertise</p>
+        <h2>I don't sell "Southern California."<br>I sell these streets.</h2>
+        <p>
+          Pricing in the Inland Empire changes block by block — school boundary, HOA line,
+          which side of the 15 you're on. I've walked these neighborhoods for years, and I'll
+          tell you when a listing is overpriced even if it costs me the sale.
+        </p>
+
+        <ul class="hood-points">
+          <li><strong>Boundary-level pricing.</strong> Comps pulled street by street, not by ZIP.</li>
+          <li><strong>Off-market access.</strong> A working network of agents trading pocket listings.</li>
+          <li><strong>Bilingual, family-first.</strong> Every document explained in English or Español.</li>
+        </ul>
+
+        <a class="btn btn-dark" href="#contact">Get a free neighborhood report</a>
+      </div>
+
+      <div class="hood-grid">
+        <a class="hood" href="#listings" data-hood="Ontario">
+          <span class="hood-name">Ontario</span>
+          <span class="hood-meta">Median $665k &middot; 21 days on market</span>
+        </a>
+        <a class="hood" href="#listings" data-hood="Rancho Cucamonga">
+          <span class="hood-name">Rancho Cucamonga</span>
+          <span class="hood-meta">Median $880k &middot; 16 days on market</span>
+        </a>
+        <a class="hood" href="#listings" data-hood="Riverside">
+          <span class="hood-name">Riverside</span>
+          <span class="hood-meta">Median $590k &middot; 27 days on market</span>
+        </a>
+        <a class="hood" href="#listings" data-hood="Fontana">
+          <span class="hood-name">Fontana</span>
+          <span class="hood-meta">Median $705k &middot; 19 days on market</span>
+        </a>
+        <a class="hood" href="#listings" data-hood="Chino Hills">
+          <span class="hood-name">Chino Hills</span>
+          <span class="hood-meta">Median $1.09M &middot; 24 days on market</span>
+        </a>
+        <a class="hood" href="#listings" data-hood="Corona">
+          <span class="hood-name">Corona</span>
+          <span class="hood-meta">Median $712k &middot; 22 days on market</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ TESTIMONIALS ============================ -->
+  <section class="section testimonials" id="testimonials">
+    <div class="wrap">
+      <div class="section-head section-head-center">
+        <div>
+          <p class="eyebrow eyebrow-dark">Client Stories</p>
+          <h2>The part that actually matters</h2>
+        </div>
+      </div>
+
+      <div class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Client testimonials">
+        <button class="car-nav car-prev" type="button" aria-label="Previous testimonial"></button>
+
+        <div class="car-viewport" id="carViewport" tabindex="0" aria-live="polite">
+          <div class="car-track" id="carTrack">
+
+            <figure class="quote" role="group" aria-roledescription="slide" aria-label="1 of 4">
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>
+                <p>We'd been outbid four times before we called Marieth. She rewrote our offer strategy,
+                got the seller on the phone herself, and we were in escrow in nine days. First house,
+                and she never once made us feel like we were asking dumb questions.</p>
+              </blockquote>
+              <figcaption>
+                <span class="avatar" aria-hidden="true">TD</span>
+                <span>
+                  <strong>Tory &amp; Denise</strong>
+                  <small>First-time buyers &middot; Ontario</small>
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="quote" role="group" aria-roledescription="slide" aria-label="2 of 4">
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>
+                <p>She listed our Fontana house on a Thursday and we had eleven showings that weekend.
+                Closed $22,000 over asking. What sold me was the prep — she told us exactly which
+                three repairs mattered and which ones to skip.</p>
+              </blockquote>
+              <figcaption>
+                <span class="avatar" aria-hidden="true">RM</span>
+                <span>
+                  <strong>Ramon M.</strong>
+                  <small>Seller &middot; Fontana</small>
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="quote" role="group" aria-roledescription="slide" aria-label="3 of 4">
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>
+                <p>Mis papás no hablan inglés y Marieth les explicó cada documento con paciencia.
+                Nos ayudó a comprar nuestra primera propiedad de inversión en Riverside. Con Dios
+                todo — y con ella, todo más fácil.</p>
+              </blockquote>
+              <figcaption>
+                <span class="avatar" aria-hidden="true">LC</span>
+                <span>
+                  <strong>Familia Cordero</strong>
+                  <small>Investors &middot; Riverside</small>
+                </span>
+              </figcaption>
+            </figure>
+
+            <figure class="quote" role="group" aria-roledescription="slide" aria-label="4 of 4">
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>
+                <p>I called about one listing and she talked me <em>out</em> of it — the HOA had a
+                pending assessment she'd already read about. Three weeks later she found us
+                something better for less. That's who you want on your side.</p>
+              </blockquote>
+              <figcaption>
+                <span class="avatar" aria-hidden="true">AK</span>
+                <span>
+                  <strong>Alicia K.</strong>
+                  <small>Move-up buyer &middot; Chino Hills</small>
+                </span>
+              </figcaption>
+            </figure>
+
+          </div>
+        </div>
+
+        <button class="car-nav car-next" type="button" aria-label="Next testimonial"></button>
+        <div class="car-dots" id="carDots" role="tablist" aria-label="Choose testimonial"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CONTACT ============================ -->
+  <section class="section contact" id="contact">
+    <div class="wrap contact-layout">
+      <div class="contact-copy">
+        <p class="eyebrow">Let's Talk</p>
+        <h2>Thirty minutes. No pressure. No pitch.</h2>
+        <p>
+          Tell me where you are — just curious, pre-approved and hunting, or thinking about
+          selling next spring. I'll tell you honestly what the market means for you, and what
+          I'd do in your position.
+        </p>
+        <ul class="contact-list">
+          <!-- TODO: replace placeholder contact details before launch -->
+          <li><a href="tel:+19095550142">(909) 555-0142</a></li>
+          <li><a href="mailto:marieth@ehomesteam.com">marieth@ehomesteam.com</a></li>
+          <li><a href="https://instagram.com/mariethrealtor" target="_blank" rel="noopener">@mariethrealtor</a></li>
+        </ul>
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <h3>Schedule a tour or consultation</h3>
+
+        <div class="row">
+          <div class="form-field">
+            <label for="c-name">Name</label>
+            <input id="c-name" name="name" type="text" autocomplete="name" required>
+            <p class="err" data-for="c-name"></p>
+          </div>
+          <div class="form-field">
+            <label for="c-phone">Phone</label>
+            <input id="c-phone" name="phone" type="tel" autocomplete="tel" required>
+            <p class="err" data-for="c-phone"></p>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="c-email">Email</label>
+          <input id="c-email" name="email" type="email" autocomplete="email" required>
+          <p class="err" data-for="c-email"></p>
+        </div>
+
+        <div class="form-field">
+          <label for="c-goal">I'm looking to</label>
+          <select id="c-goal" name="goal">
+            <option>Buy a home</option>
+            <option>Sell a home</option>
+            <option>Invest</option>
+            <option>Just exploring</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="c-msg">Anything I should know? <span class="opt">(optional)</span></label>
+          <textarea id="c-msg" name="message" rows="3"></textarea>
+        </div>
+
+        <button class="btn btn-primary btn-block" type="submit">Request my free consultation</button>
+        <p class="form-fine">Prefer to pick a time yourself?
+          <a href="https://calendly.com/marieth-ehomesteam/30min" target="_blank" rel="noopener">Open my calendar</a>.
+        </p>
+        <p class="form-success" id="formSuccess" hidden role="status"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true">MM</span>
+      <p><strong>Marieth Martin</strong><br>
+      SoCal Realtor &middot; eHomeTeam<br>
+      <span class="footer-faith">Con Dios Todo</span></p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#listings">Listings</a>
+      <a href="#neighborhoods">Neighborhoods</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="footer-legal">
+      <!-- TODO: replace with the real DRE license number — required on CA advertising -->
+      <p>DRE #00000000 &middot; Equal Housing Opportunity</p>
+      <p>&copy; 2026 Marieth Martin. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ STICKY CTA ============================ -->
+<div class="sticky-cta" id="stickyCta" hidden>
+  <div class="wrap sticky-inner">
+    <p class="sticky-text">
+      <strong class="sticky-long">Found something you like?</strong>
+      <strong class="sticky-short">Ready to tour?</strong>
+      <span>Free 30-minute consultation — no obligation.</span>
+    </p>
+    <div class="sticky-actions">
+      <a class="btn btn-ghost-light" href="tel:+19095550142">Call</a>
+      <a class="btn btn-primary" href="https://calendly.com/marieth-ehomesteam/30min" target="_blank" rel="noopener">Schedule a Tour</a>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bcd9ee"/>
+      <stop offset="100%" stop-color="#eaf3fa"/>
+    </linearGradient>
+    <linearGradient id="glow1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".55"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#sky1)"/>
+  <circle cx="640" cy="130" r="58" fill="#fff" opacity=".55"/>
+  <rect width="800" height="330" fill="url(#glow1)"/>
+
+  <!-- distant ridge line -->
+  <path d="M0 330 L120 286 L215 320 L330 262 L455 318 L560 278 L680 316 L800 284 L800 372 L0 372 Z"
+        fill="#9db7cb" opacity=".8"/>
+  <path d="M0 356 L140 322 L268 352 L402 312 L530 350 L668 320 L800 348 L800 400 L0 400 Z"
+        fill="#7d96ab" opacity=".85"/>
+
+  <!-- ground -->
+  <rect y="392" width="800" height="208" fill="#b9c9a8"/>
+  <rect y="392" width="800" height="12" fill="#000" opacity=".06"/>
+
+  <!-- driveway -->
+  <path d="M300 600 L500 600 L440 470 L360 470 Z" fill="#e8e2d6" opacity=".85"/>
+
+  <!-- house -->
+  <path d="M176 300 L400 186 L624 300 L624 316 L176 316 Z" fill="#3f5568"/>
+  <rect x="206" y="312" width="388" height="170" fill="#ffffff"/>
+  <rect x="206" y="312" width="388" height="170" fill="#000" opacity=".03"/>
+
+  <!-- garage -->
+  <rect x="236" y="372" width="120" height="110" rx="4" fill="#2f4152" opacity=".18"/>
+  <rect x="236" y="372" width="120" height="110" rx="4" fill="none" stroke="#2f4152" stroke-width="4" opacity=".45"/>
+  <g stroke="#2f4152" stroke-width="2" opacity=".28">
+    <line x1="240" y1="398" x2="352" y2="398"/>
+    <line x1="240" y1="424" x2="352" y2="424"/>
+    <line x1="240" y1="450" x2="352" y2="450"/>
+  </g>
+
+  <!-- windows -->
+  <rect x="392" y="360" width="76" height="70" rx="3" fill="#2b3a45" opacity=".7"/>
+  <rect x="392" y="360" width="76" height="70" rx="3" fill="none" stroke="#2f4152" stroke-width="5"/>
+  <rect x="500" y="360" width="60" height="70" rx="3" fill="#2b3a45" opacity=".7"/>
+  <rect x="500" y="360" width="60" height="70" rx="3" fill="none" stroke="#2f4152" stroke-width="5"/>
+
+  <!-- front door -->
+  <rect x="392" y="440" width="0" height="0" fill="none"/>
+  <path d="M392 482 L392 444 Q392 436 400 436 L438 436 Q446 436 446 444 L446 482 Z" fill="#3f5568"/>
+  <circle cx="437" cy="462" r="3" fill="#f3e6cf"/>
+
+  <!-- shrubs -->
+  <g fill="#6f8757" opacity=".9">
+    <ellipse cx="222" cy="486" rx="34" ry="20"/>
+    <ellipse cx="268" cy="492" rx="26" ry="16"/>
+    <ellipse cx="586" cy="488" rx="38" ry="22"/>
+    <ellipse cx="632" cy="494" rx="24" ry="15"/>
+  </g>
+
+  <!-- palm -->
+  <rect x="700" y="300" width="10" height="200" rx="5" fill="#8a6a4f"/>
+  <g fill="#5f7a4a">
+    <path d="M705 300 Q660 274 630 292 Q668 288 705 312 Z"/>
+    <path d="M705 300 Q750 274 780 292 Q742 288 705 312 Z"/>
+    <path d="M705 300 Q688 258 700 232 Q712 262 712 306 Z"/>
+    <path d="M705 300 Q744 306 764 336 Q726 318 705 314 Z"/>
+  </g>
+</svg>
