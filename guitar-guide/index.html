@@ -24,6 +24,7 @@
   --wood:#C97A3A; --wood-dark:#8B4A1C; color-scheme:dark}
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
 .wrap{max-width:960px;margin:0 auto;padding-inline:20px;padding-block:0 64px}
 h1,h2,h3,h4{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
@@ -161,6 +162,77 @@ th{font-family:var(--display);font-weight:600}
 .cert .who{font-family:var(--display);font-size:clamp(2rem,6vw,3rem);font-weight:700;color:var(--accent)}
 .cert.locked{opacity:.55}
 footer{margin-top:40px;color:var(--muted);font-size:.85rem}
+
+/* Video lessons */
+.vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.vcard{font:inherit;text-align:left;cursor:pointer;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:0;overflow:hidden;display:grid}
+.vcard:hover{border-color:var(--lc)}
+.vthumb{aspect-ratio:16/8;max-width:100%;background:var(--lc);display:grid;place-items:center;position:relative}
+.vthumb svg{width:44px;height:44px}
+.vthumb .wkn{position:absolute;left:12px;top:8px;font-family:var(--display);font-weight:700;color:#fff;font-size:.85rem;letter-spacing:.06em}
+.vthumb .seen{position:absolute;right:10px;top:8px;background:#fff;color:var(--good);font-weight:800;font-size:.75rem;border-radius:999px;padding:1px 8px}
+.vmeta{padding:10px 14px 12px;display:grid;gap:2px}
+.vmeta strong{font-family:var(--display);font-size:1.05rem}
+.vmeta small{color:var(--muted);font-weight:700}
+.play-lesson{display:inline-flex;align-items:center;gap:8px;justify-self:start}
+.play-lesson svg{width:16px;height:16px}
+
+.player{position:fixed;inset:0;z-index:50;background:var(--bg);overflow-y:auto;padding-inline:16px;padding-block:calc(env(safe-area-inset-top,0px) + 12px) calc(env(safe-area-inset-bottom,0px) + 16px)}
+.pl-card{max-width:820px;margin:0 auto;display:grid;gap:12px}
+.pl-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.pl-top h3{font-size:1.2rem;min-width:0}
+.pl-top .eyebrow{display:block}
+.iconbtn{font:inherit;font-weight:800;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer;white-space:nowrap}
+.iconbtn:hover{border-color:var(--accent)}
+.iconbtn:disabled{opacity:.4;cursor:default}
+.pl-stage{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.pl-stage svg{display:block;width:100%;height:auto}
+.pl-paused{position:absolute;inset:0;display:grid;place-items:center;background:color-mix(in srgb,var(--bg) 55%,transparent);border:0;cursor:pointer;color:var(--ink);font:inherit}
+.pl-paused span{display:grid;place-items:center;width:84px;height:84px;border-radius:50%;background:var(--accent);color:var(--accent-ink)}
+.pl-paused svg{width:34px;height:34px;margin-left:6px}
+.pl-kara{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 10px;min-height:1.8em;font-family:var(--display);font-weight:600;font-size:1.35rem;color:var(--muted)}
+.pl-kara span.now{color:var(--accent);transform:scale(1.12)}
+.pl-kara span{transition:transform .15s,color .15s}
+.pl-say{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center}
+.pl-say svg{width:64px;height:64px}
+.bubble{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:12px 16px;font-size:1.15rem;font-weight:700;line-height:1.45;min-height:3.4em;min-width:0}
+.talk{animation:talk .5s ease-in-out infinite alternate}
+@keyframes talk{from{transform:translateY(0) rotate(-3deg)}to{transform:translateY(-4px) rotate(3deg)}}
+.pl-act{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center}
+.pl-act:empty{display:none}
+.choice{font:inherit;font-family:var(--display);font-weight:600;font-size:1.15rem;padding:12px 22px;border-radius:16px;border:3px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.choice:hover{border-color:var(--accent)}
+.choice.right{border-color:var(--good);background:var(--good);color:#fff}
+.choice.wrong{opacity:.45}
+.strum-btn{font-size:1.4rem;padding:16px 40px;touch-action:manipulation}
+.mini-beats{display:flex;gap:10px;flex-basis:100%;justify-content:center}
+.mini-beats i{width:30px;height:30px;border-radius:50%;border:3px solid var(--line);transition:transform .08s}
+.mini-beats i.on{background:var(--accent);border-color:var(--accent);transform:scale(1.15)}
+.status{flex-basis:100%;text-align:center;font-weight:800;font-size:1.1rem}
+.checkitem{display:flex;gap:12px;align-items:center;font-weight:800;font-size:1.1rem;padding:10px 16px;border-radius:14px;border:3px solid var(--line);background:var(--surface);cursor:pointer;flex-basis:100%;max-width:460px}
+.checkitem input{width:28px;height:28px;accent-color:var(--good)}
+.checkitem:has(input:checked){border-color:var(--good)}
+.pl-controls{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.pl-btns{display:flex;gap:8px}
+.pl-dots{display:flex;flex-wrap:wrap;gap:6px;flex:1 1 200px;justify-content:center}
+.pl-dots button{width:14px;height:14px;padding:0;border-radius:50%;border:2px solid var(--line);background:var(--surface);cursor:pointer}
+.pl-dots button.past{background:var(--line)}
+.pl-dots button.cur{background:var(--accent);border-color:var(--accent)}
+.vib{animation:vib .45s linear}
+@keyframes vib{0%,100%{transform:translateY(0)}15%{transform:translateY(-3px)}35%{transform:translateY(2.5px)}55%{transform:translateY(-1.5px)}75%{transform:translateY(1px)}}
+.pop{animation:pop .3s ease-out}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.pulse{animation:pulse 1s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+.shake{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+svg .pop,svg .vib,svg .shake{transform-box:fill-box;transform-origin:center}
+[data-part]{cursor:pointer}
+[data-part].hl > *:not(text){stroke:var(--accent);stroke-width:5}
+.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.confetti i{position:absolute;top:-16px;width:10px;height:14px;border-radius:2px;background:var(--c);animation:fall var(--d) linear forwards}
+@keyframes fall{to{transform:translateY(360px) rotate(540deg)}}
+@media (prefers-reduced-motion:reduce){.talk,.vib,.pop,.pulse,.shake,.confetti i{animation:none}}
 </style>
 
 <div class="wrap">
@@ -178,11 +250,12 @@ footer{margin-top:40px;color:var(--muted);font-size:.85rem}
       <span class="fact"><b>10–15</b> min a day</span>
       <span class="fact"><b>8</b> chords</span>
       <span class="fact"><b>8</b> songs</span>
+      <span class="fact"><b>12</b> video lessons</span>
     </div>
   </header>
 
   <nav class="tabs" aria-label="Sections">
-    <a href="#plan">Weekly plan</a><a href="#routine">Daily routine</a><a href="#chords">Chords</a><a href="#songs">Songs</a><a href="#tools">Tuner &amp; beat</a><a href="#parents">For grown-ups</a><a href="#next">After 3 months</a>
+    <a href="#videos">Video lessons</a><a href="#plan">Weekly plan</a><a href="#routine">Daily routine</a><a href="#chords">Chords</a><a href="#songs">Songs</a><a href="#tools">Tuner &amp; beat</a><a href="#parents">For grown-ups</a><a href="#next">After 3 months</a>
   </nav>
 
   <section id="progress" aria-label="Progress">
@@ -195,6 +268,12 @@ footer{margin-top:40px;color:var(--muted);font-size:.85rem}
       <div class="bar" role="progressbar" aria-labelledby="starText" id="bar"><span></span></div>
       <div class="badges" id="badges"></div>
     </div>
+  </section>
+
+  <section id="videos">
+    <div><p class="eyebrow">Watch, then play along</p><h2>Video lessons</h2></div>
+    <p class="lede">One animated lesson for each week. Picky the guitar pick talks her through each skill, shows it on the fretboard, and then gives her a turn. She taps glowing dots, strums on the beat, and answers quick questions. Turn the sound on. Watch each lesson on Day 1 of its week, and again any day she needs a reminder.</p>
+    <div class="vids" id="vidGrid"></div>
   </section>
 
   <section id="plan">
@@ -315,6 +394,24 @@ footer{margin-top:40px;color:var(--muted);font-size:.85rem}
   </section>
 
   <footer>Progress, name and start date are saved in this browser only. Songs used are traditional and in the public domain.</footer>
+</div>
+
+<div class="player" id="player" hidden role="dialog" aria-modal="true" aria-labelledby="plTitle">
+  <div class="pl-card">
+    <div class="pl-top">
+      <div><span class="eyebrow" id="plStep">Scene 1</span><h3 id="plTitle">Lesson</h3></div>
+      <div class="pl-btns"><button class="iconbtn" id="plVoice" type="button">Voice on</button><button class="iconbtn" id="plClose" type="button">Close</button></div>
+    </div>
+    <div class="pl-stage" id="plStageWrap"><div id="plStage"></div><div class="confetti" id="plConfetti"></div>
+      <button class="pl-paused" id="plPaused" type="button" hidden aria-label="Play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l15 9-15 9z" fill="currentColor"/></svg></span></button></div>
+    <div class="pl-kara" id="plKara" aria-live="polite"></div>
+    <div class="pl-say"><svg viewBox="0 0 100 108" id="plMascot" aria-hidden="true"></svg><p class="bubble" id="plBubble" aria-live="polite"></p></div>
+    <div class="pl-act" id="plAct"></div>
+    <div class="pl-controls">
+      <div class="pl-btns"><button class="iconbtn" id="plPrev" type="button">Back</button><button class="iconbtn" id="plPlay" type="button">Pause</button><button class="iconbtn" id="plNext" type="button">Next</button></div>
+      <div class="pl-dots" id="plDots"></div>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -599,5 +696,341 @@ Song title:       ___________________________`}
 
   // ---------- Videos ----------
   document.getElementById("videoLinks").innerHTML=VIDEOS.map(v=>`<a class="chip" target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=${encodeURIComponent(v[1])}">${v[0]}</a>`).join("");
+
+  // =========================================================
+  // Video lessons: an animated, narrated player per week
+  // =========================================================
+  const RAINBOW=[[6,0,"Eddie"],[5,0,"Ate"],[4,0,"Dynamite"],[3,0,"Good"],[2,0,"Bye"],[1,0,"Eddie"]];
+  const melody=(name,li)=>SONGS.find(x=>x.n===name).lines[li].split("|").map(t=>{const sp=t.indexOf(" ");return [t[0]==="e"?1:2,+t.slice(1,sp),t.slice(sp+1)]});
+  const M=(say)=>({m:"mascot",say});
+  const YAY=(say)=>({m:"mascot",say,act:{t:"celebrate"}});
+
+  const LESSONS=[
+    [ M("Hi {name}! I'm Picky, your guitar buddy. Today we're going to meet your guitar!"),
+      {m:"guitar",part:"head",say:"This is the head. The tuning pegs live here. Turning them makes the strings tight or loose."},
+      {m:"guitar",part:"neck",say:"This long part is the neck. The metal lines on it are called frets."},
+      {m:"guitar",part:"body",say:"This big round part is the body."},
+      {m:"guitar",part:"soundhole",say:"And this is the sound hole. That's where the music comes out!"},
+      {m:"guitar",say:"Can you find the sound hole? Tap it!",act:{t:"findPart",part:"soundhole"}},
+      {m:"guitar",say:"Now tap the head of the guitar.",act:{t:"findPart",part:"head"}},
+      {m:"mascot",say:"Let's sit like a real guitar player. Tap each one when you have done it.",act:{t:"check",items:["Sit tall near the front of the chair","Guitar on your right leg","Hug the guitar close","Right arm over the top"]}},
+      {m:"neck",say:"Your guitar has six strings. Each one has a name. Listen: Eddie Ate Dynamite, Good Bye Eddie!",act:{t:"pluck",seq:RAINBOW,bpm:70}},
+      {m:"neck",say:"Can you tap the thinnest string? It's the purple one at the top.",act:{t:"tapString",s:1}},
+      {m:"neck",say:"Now tap the thickest string. It's the red one at the bottom.",act:{t:"tapString",s:6}},
+      {m:"neck",say:"Strumming means brushing your thumb down across all the strings. Like this.",act:{t:"strum",reps:4,bpm:60}},
+      {m:"neck",say:"Your turn! Strum four times. Tap the Strum button, or strum your real guitar.",act:{t:"strumAlong",n:4}},
+      YAY("Wow, {name}! You met your guitar and played your first strums. High five!")],
+
+    [ M("Welcome back, {name}! Today we meet your finger friends."),
+      {m:"hand",say:"Your fingers have numbers. Pointer is one. Middle is two. Ring is three. Pinky is four.",act:{t:"handCount"}},
+      {m:"hand",say:"Can you tap finger number three?",act:{t:"findFinger",f:3}},
+      {m:"hand",say:"Now tap finger number one.",act:{t:"findFinger",f:1}},
+      {m:"neck",dots:[[1,1,1]],say:"Put finger one on the thinnest string, just behind the first fret wire. Press it like a doorbell!",act:{t:"pluck",seq:[[1,1],[1,1]],bpm:50}},
+      {m:"neck",say:"If it buzzes, press a little harder, or move closer to the metal wire.",act:{t:"pluck",seq:[[1,1]],bpm:50}},
+      {m:"neck",say:"Now the spider walk! Fingers one, two, three, four, on frets one, two, three, four.",act:{t:"pluck",seq:[[1,1,"1"],[1,2,"2"],[1,3,"3"],[1,4,"4"]],bpm:60,keep:true}},
+      {m:"neck",say:"Your turn! Tap each glowing dot to make the spider walk.",act:{t:"follow",seq:[[1,1,"1"],[1,2,"2"],[1,3,"3"],[1,4,"4"]]}},
+      {m:"neck",say:"Here's the start of a real song. Hot Cross Buns! Listen first.",act:{t:"pluck",seq:melody("Hot Cross Buns",0),bpm:70}},
+      {m:"neck",say:"Now you play it. Tap the glowing dots.",act:{t:"follow",seq:melody("Hot Cross Buns",0)}},
+      YAY("Super job! Your fingers are getting strong, {name}.")],
+
+    [ M("Music has a heartbeat. It's called the beat. Let's find it!"),
+      {m:"beat",say:"Listen and count with me. One, two, three, four.",act:{t:"count",n:4,bars:2,bpm:60}},
+      {m:"beat",say:"Now clap on every beat!",act:{t:"count",n:4,bars:2,bpm:60}},
+      {m:"mascot",say:"How many beats do we count before we start again?",act:{t:"quiz",choices:["3","4","10"],a:1}},
+      {m:"neck",say:"Strums can be loud, like a lion.",act:{t:"strum",reps:4,bpm:70,vol:.55}},
+      {m:"neck",say:"Or soft, like a tiny mouse.",act:{t:"strum",reps:4,bpm:70,vol:.12}},
+      {m:"neck",say:"Your turn. Strum every time a circle lights up. Ready?",act:{t:"strumAlong",n:8,bpm:60}},
+      {m:"neck",say:"Here's the second half of Hot Cross Buns.",act:{t:"pluck",seq:melody("Hot Cross Buns",1),bpm:80}},
+      {m:"neck",say:"You play it! Tap the glowing dots.",act:{t:"follow",seq:melody("Hot Cross Buns",1)}},
+      YAY("Level one complete! You are a Little Strummer, {name}!")],
+
+    [ M("Today you learn your very first chord! A chord is when strings ring together."),
+      {m:"neck",shape:"Mini C",say:"This is Mini C. Finger one goes on the first fret of the B string. Then strum just the three thinnest strings.",act:{t:"strum",reps:2,bpm:50}},
+      {m:"neck",shape:"Mini C",say:"Let's check each string rings nice and clear.",act:{t:"pluck",seq:[[3,0],[2,1],[1,0]],bpm:60}},
+      {m:"neck",shape:"Mini C",say:"Your turn! Strum Mini C on each beat.",act:{t:"strumAlong",n:4,bpm:60}},
+      {m:"neck",shape:"Mini G7",say:"This is Mini G7. Finger one hops up to the thinnest string. Like a frog hop!",act:{t:"strum",reps:2,bpm:50}},
+      {m:"mascot",say:"For Mini C, which string does finger one press?",act:{t:"quiz",choices:["The thinnest string","The B string","The thickest string"],a:1}},
+      {m:"neck",shape:"Mini C",say:"Watch the switch. Mini C, then Mini G7. Four strums each.",act:{t:"prog",bpm:70,bars:[["Mini C","",4],["Mini G7","",4],["Mini C","",4],["Mini G7","",4]]}},
+      {m:"neck",shape:"Mini C",say:"Now let's play a whole song. Row, Row, Row Your Boat. Sing along!",act:{t:"prog",bpm:80,bars:[["Mini C","Row, row, row your boat",4],["Mini C","gently down the stream",4],["Mini C","merrily, merrily, merrily, merrily",4],["Mini G7","life is but a",2],["Mini C","dream!",2]]}},
+      YAY("Your first chords! You are a real guitar player now, {name}.")],
+
+    [ M("Today we play a whole song. Mary Had a Little Lamb!"),
+      {m:"neck",say:"Listen to the first part.",act:{t:"pluck",seq:melody("Mary Had a Little Lamb",0),bpm:85}},
+      {m:"neck",say:"Your turn. Tap the glowing dots. Go slow.",act:{t:"follow",seq:melody("Mary Had a Little Lamb",0)}},
+      {m:"neck",say:"Here's the second part.",act:{t:"pluck",seq:melody("Mary Had a Little Lamb",1),bpm:85}},
+      {m:"neck",say:"You play it!",act:{t:"follow",seq:melody("Mary Had a Little Lamb",1)}},
+      {m:"mascot",say:"In tab, what does a zero mean?",act:{t:"quiz",choices:["Play the string open, no fingers","Don't play that string","Use finger zero"],a:0}},
+      YAY("You played a whole song, {name}! Time to show your family.")],
+
+    [ M("Three-chord magic! Today we learn Mini G."),
+      {m:"neck",shape:"Mini G",say:"Mini G. Finger three goes on the third fret of the thinnest string.",act:{t:"strum",reps:2,bpm:50}},
+      {m:"neck",shape:"Mini G",say:"Your turn! Strum Mini G on each beat.",act:{t:"strumAlong",n:4,bpm:60}},
+      {m:"neck",shape:"Mini G",say:"Now switch between Mini G and Mini C.",act:{t:"prog",bpm:70,bars:[["Mini G","",4],["Mini C","",4],["Mini G","",4],["Mini C","",4]]}},
+      {m:"neck",shape:"Mini C",say:"New trick! Down with your thumb, and up with your pointer fingernail. One and two and three and four and.",act:{t:"strum",bpm:70,reps:1,pattern:[["D",.5],["U",.5],["D",.5],["U",.5],["D",.5],["U",.5],["D",.5],["U",.5]]}},
+      {m:"neck",say:"Listen to the first line of Twinkle Twinkle Little Star.",act:{t:"pluck",seq:melody("Twinkle Twinkle Little Star",0),bpm:85}},
+      {m:"neck",say:"Your turn. Tap the dots!",act:{t:"follow",seq:melody("Twinkle Twinkle Little Star",0)}},
+      {m:"neck",say:"And the next line.",act:{t:"follow",seq:melody("Twinkle Twinkle Little Star",1)}},
+      YAY("Level two complete! You are a Song Explorer, {name}!")],
+
+    [ M("Big chord day! E minor uses all six strings."),
+      {m:"neck",shape:"Em",say:"For E minor, fingers two and three go on the second fret of these two strings.",act:{t:"strum",reps:2,bpm:45}},
+      {m:"neck",shape:"Em",say:"Pluck each string, one at a time. Do they all ring?",act:{t:"pluck",seq:[[6,0],[5,2],[4,2],[3,0],[2,0],[1,0]],bpm:70}},
+      {m:"mascot",say:"Your fingers should stand up tall, like a...",act:{t:"quiz",choices:["Bridge","Pancake","Noodle"],a:0}},
+      {m:"neck",shape:"Em",say:"Your turn. Strum E minor on each beat.",act:{t:"strumAlong",n:8,bpm:60}},
+      {m:"neck",shape:"Em",say:"E minor sounds a little spooky. Slow strums sound like creeping...",act:{t:"strum",reps:4,bpm:45}},
+      {m:"neck",shape:"Em",say:"and fast strums sound like running away!",act:{t:"strum",reps:8,bpm:150}},
+      YAY("Your first big chord! Make up a spooky story with E minor today, {name}.")],
+
+    [ M("Today we meet E minor's friend, A minor."),
+      {m:"neck",shape:"Am",say:"A minor uses three fingers. We skip the thickest string.",act:{t:"strum",reps:2,bpm:45}},
+      {m:"mascot",say:"Which string do we skip for A minor?",act:{t:"quiz",choices:["The thinnest string","The thickest string","No strings"],a:1}},
+      {m:"neck",shape:"Em",say:"Watch the switch. Fingers two and three move together, like a team.",act:{t:"prog",bpm:60,bars:[["Em","",4],["Am","",4],["Em","",4],["Am","",4]]}},
+      {m:"neck",shape:"Em",say:"A new strum pattern. Down, down, down up, down.",act:{t:"strum",bpm:70,reps:2,pattern:[["D",1],["D",1],["D",.5],["U",.5],["D",1]]}},
+      {m:"neck",shape:"Em",say:"Now the Spooky Song. Sing along!",act:{t:"prog",bpm:80,bars:[["Em","Creeping through the forest,",4],["Am","quiet as a mouse,",4],["Em","something's making noises",4],["Am","in the old dark house.",4],["Em","Is it a ghost?",4],["Am","Is it a bat?",4],["Em","No! It's just my",2],["Am","fluffy",2],["Em","cat!",4]]}},
+      YAY("Spooky and awesome, {name}!")],
+
+    [ M("D is for dinosaur! Today we learn the D chord."),
+      {m:"neck",shape:"D",say:"Your fingers make a little triangle. Strum only the four thinnest strings.",act:{t:"strum",reps:2,bpm:45}},
+      {m:"mascot",say:"What shape do your fingers make for D?",act:{t:"quiz",choices:["A square","A triangle","A circle"],a:1}},
+      {m:"neck",shape:"D",say:"Your turn. Strum D on each beat.",act:{t:"strumAlong",n:4,bpm:60}},
+      {m:"neck",shape:"Mini G",say:"Switch between Mini G and D.",act:{t:"prog",bpm:60,bars:[["Mini G","",4],["D","",4],["Mini G","",4],["D","",4]]}},
+      {m:"neck",shape:"Mini G",say:"Now Old MacDonald, with G, C and D. E I E I O!",act:{t:"prog",bpm:90,bars:[["Mini G","Old MacDonald",4],["Mini C","had a",2],["Mini G","farm,",2],["Mini G","E I",2],["D","E I",2],["Mini G","O!",4]]}},
+      YAY("Level three complete! You are a Chord Builder, {name}!")],
+
+    [ M("Today's secret: real musicians never stop, even when they make a mistake."),
+      {m:"mascot",say:"If you are late for a chord change, what do you do?",act:{t:"quiz",choices:["Stop and start over","Keep strumming","Put the guitar down"],a:1}},
+      {m:"neck",shape:"Mini G",say:"Let's go round and round. G, C, D, G. No stopping!",act:{t:"prog",bpm:66,bars:[["Mini G","",4],["Mini C","",4],["D","",4],["Mini G","",4]]}},
+      {m:"beat",say:"Happy Birthday is a waltz. We count to three. One, two, three.",act:{t:"count",n:3,bars:3,bpm:90}},
+      {m:"neck",shape:"Mini G",say:"Now Happy Birthday. Three strums on each chord. Sing it loud!",act:{t:"prog",bpm:100,bars:[["Mini G","Happy birthday",3],["D","to you,",3],["D","Happy birthday",3],["Mini G","to you,",3],["Mini G","Happy birthday dear",3],["Mini C","friend,",3],["Mini G","Happy",3],["D","birthday to",3],["Mini G","you!",3]]}},
+      {m:"neck",shape:"Mini G",say:"Your turn. Strum along on every beat while you sing.",act:{t:"strumAlong",n:12,bpm:90}},
+      YAY("Now you can play at every birthday party, {name}!")],
+
+    [ M("Let's make music sound fancy! Patterns, picking, and your own song."),
+      {m:"neck",shape:"Em",say:"A cool strum pattern. Down, down up, up down up.",act:{t:"strum",bpm:70,reps:2,pattern:[["D",1],["D",.5],["U",1],["U",.5],["D",.5],["U",.5]]}},
+      {m:"neck",shape:"Em",say:"Picking! Your thumb plays the thick string. Your fingers pluck the thin ones.",act:{t:"pluck",seq:[[6,0],[3,0],[2,0],[1,0],[2,0],[3,0]],bpm:110}},
+      {m:"neck",shape:"Em",say:"Your turn. Tap the glowing strings.",act:{t:"follow",seq:[[6,0],[3,0],[2,0],[1,0],[2,0],[3,0]]}},
+      {m:"neck",shape:"Am",say:"Same picking on A minor. Listen.",act:{t:"pluck",seq:[[5,0],[3,2],[2,1],[1,0],[2,1],[3,2]],bpm:110}},
+      {m:"neck",shape:"C",say:"Bonus challenge! This is the big C chord. It's a stretch, so try it slowly.",act:{t:"strum",reps:2,bpm:45}},
+      {m:"neck",shape:"G",say:"And this is the big G chord. Your fingers will grow into it.",act:{t:"strum",reps:2,bpm:45}},
+      {m:"mascot",say:"Now write your own song! Pick two chords you like. A grown-up can write down your words."},
+      YAY("You are a songwriter now, {name}!")],
+
+    [ M("Concert week! Look how much you have learned, {name}."),
+      {m:"neck",say:"Let's warm up with the string rainbow.",act:{t:"pluck",seq:RAINBOW,bpm:80}},
+      {m:"mascot",say:"Which chord makes a triangle?",act:{t:"quiz",choices:["E minor","D","Mini C"],a:1}},
+      {m:"mascot",say:"What are the string names, from thick to thin?",act:{t:"quiz",choices:["Eddie Ate Dynamite, Good Bye Eddie","Apples Bananas Carrots","One Two Three Four"],a:0}},
+      {m:"mascot",say:"Get ready for your concert. Tap each one when it's done.",act:{t:"check",items:["Make a concert poster","Pick three songs","Practice your bow","Invite the family"]}},
+      {m:"neck",shape:"Mini C",say:"One last practice. Row, Row, Row Your Boat!",act:{t:"prog",bpm:90,bars:[["Mini C","Row, row, row your boat",4],["Mini C","gently down the stream",4],["Mini C","merrily, merrily, merrily, merrily",4],["Mini G7","life is but a",2],["Mini C","dream!",2]]}},
+      YAY("You did it, {name}! You are a Guitar Star! Now take a big bow for your family.")]
+  ];
+
+  // ---------- Thumbnails ----------
+  const PLAYSVG=`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3l15 9-15 9z" fill="currentColor"/></svg>`;
+  let watched=store.get("lsgq.watched",{});
+  const lvlOf=wi=>LEVELS.find(L=>L.weeks.includes(wi));
+  function renderVids(){
+    document.getElementById("vidGrid").innerHTML=WEEKS.map((W,wi)=>`<button type="button" class="vcard" data-play="${wi}" style="--lc:var(${lvlOf(wi).c})">
+      <span class="vthumb"><span class="wkn">WEEK ${wi+1}</span>${watched[wi]?'<span class="seen">Watched</span>':""}<svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="#fff"/><path d="M19 14l15 10-15 10z" fill="var(--lc)"/></svg></span>
+      <span class="vmeta"><strong>${W.t}</strong><small>${LESSONS[wi].length} scenes · about ${Math.round(LESSONS[wi].length*0.4+1)} min</small></span></button>`).join("");
+  }
+  renderVids();
+  document.querySelectorAll(".wbody").forEach((b,wi)=>{const btn=document.createElement("button");btn.type="button";btn.className="btn play-lesson";btn.dataset.play=wi;btn.innerHTML=`${PLAYSVG}Play the Week ${wi+1} video lesson`;b.prepend(btn)});
+  document.addEventListener("click",e=>{const t=e.target.closest("[data-play]");if(t)openLesson(+t.dataset.play)});
+
+  // ---------- Player state ----------
+  const $=id=>document.getElementById(id);
+  const ov=$("player"),stageEl=$("plStage"),bubble=$("plBubble"),actEl=$("plAct"),kara=$("plKara"),mascotEl=$("plMascot");
+  const PL={wi:0,i:0,playing:true,tok:0,voice:store.get("lsgq.voice",true),shape:{fr:{},mute:new Set(),fi:{}},onString:null,lastFocus:null};
+  const CANCEL={};
+  const kid=()=>nameEl.value.trim()||"friend";
+  const fill=t=>t.replace(/\{name\}/g,kid());
+  mascotEl.innerHTML=`<path d="M50 6C82 6 98 22 94 46C90 70 66 96 50 104C34 96 10 70 6 46C2 22 18 6 50 6Z" fill="var(--accent)"/><circle cx="35" cy="42" r="9" fill="#fff"/><circle cx="65" cy="42" r="9" fill="#fff"/><circle cx="37" cy="44" r="4.5" fill="#1D2740"/><circle cx="63" cy="44" r="4.5" fill="#1D2740"/><path d="M34 62Q50 76 66 62" fill="none" stroke="#1D2740" stroke-width="4.5" stroke-linecap="round"/>`;
+  mascotEl.style.transformOrigin="50% 90%";
+
+  const wait=(ms,tok)=>new Promise(r=>setTimeout(r,ms)).then(()=>{if(tok!==PL.tok)throw CANCEL});
+  const live=tok=>{if(tok!==PL.tok)throw CANCEL};
+
+  let voiceObj=null;
+  function pickVoice(){if(voiceObj)return voiceObj;try{const vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang));voiceObj=vs.find(v=>/samantha|google us english|jenny|aria|zira|karen|moira|female/i.test(v.name))||vs.find(v=>/en-US/i.test(v.lang))||vs[0]||null}catch(e){}return voiceObj}
+  function speak(text,tok){
+    const est=Math.max(1600,text.length*60);
+    return new Promise(res=>{let done=false;const t0=Date.now();const fin=()=>{if(done)return;done=true;const el=Date.now()-t0;el<400?setTimeout(res,est):res()};
+      if(PL.voice&&window.speechSynthesis&&window.SpeechSynthesisUtterance){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.rate=.92;u.pitch=1.15;const v=pickVoice();if(v)u.voice=v;u.onend=fin;u.onerror=fin;speechSynthesis.speak(u);setTimeout(fin,est*2+2500)}catch(e){setTimeout(fin,est)}}
+      else setTimeout(fin,est)}).then(()=>live(tok));
+  }
+  function stopAll(){PL.tok++;PL.onString=null;try{window.speechSynthesis&&speechSynthesis.cancel()}catch(e){}mascotEl.classList.remove("talk");$("plConfetti").innerHTML=""}
+  function cheer(){const a=ac();if(!a)return;[523.25,659.25,783.99,1046.5].forEach((f,i)=>pluck(f,a.currentTime+i*.09,.25))}
+  function boop(){const a=ac();if(!a)return;pluck(130.81,a.currentTime,.15)}
+
+  // ---------- Stage drawings ----------
+  const NS="http://www.w3.org/2000/svg";
+  const sy=s=>50+(s-1)*32, fx=f=>f===0?40:60+(f-.5)*100;
+  const noteF=(s,f)=>OPEN[6-s]*Math.pow(2,f/12);
+  const LET={1:"e",2:"B",3:"G",4:"D",5:"A",6:"E"};
+  function neckSVG(){
+    let s=`<svg viewBox="0 0 600 270" role="img" aria-label="Guitar fretboard"><rect x="56" y="30" width="540" height="200" rx="6" fill="var(--wood)"/><rect x="54" y="30" width="8" height="200" fill="var(--line)"/>`;
+    for(let f=1;f<=5;f++)s+=`<rect x="${58+f*100}" y="30" width="4" height="200" fill="#C9CED6"/><text x="${60+(f-.5)*100}" y="255" text-anchor="middle" font-size="16" font-weight="800" fill="var(--muted)" font-family="Nunito,sans-serif">${f}</text>`;
+    s+=`<circle cx="310" cy="130" r="9" fill="var(--wood-dark)"/><circle cx="510" cy="130" r="9" fill="var(--wood-dark)"/>`;
+    s+=`<g id="nkMarks"></g>`;
+    for(let k=1;k<=6;k++)s+=`<text x="14" y="${sy(k)+6}" font-size="17" font-weight="800" fill="var(--s${k})" font-family="Fredoka,sans-serif">${LET[k]}</text><line data-s="${k}" x1="56" x2="596" y1="${sy(k)}" y2="${sy(k)}" stroke="var(--s${k})" stroke-width="${1.6+k*.55}" stroke-linecap="round"/>`;
+    s+=`<g id="nkDots"></g><g id="nkPick" style="transition:transform .14s ease-in;pointer-events:none"><path d="M566 20c9 0 14 4 13 11c-1 7-8 15-13 18c-5-3-12-11-13-18c-1-7 4-11 13-11z" fill="var(--accent)" stroke="var(--ink)" stroke-width="1.5"/></g><g id="nkHit">`;
+    for(let k=1;k<=6;k++)s+=`<rect data-hit="${k}" x="0" y="${sy(k)-16}" width="600" height="32" fill="transparent" style="cursor:pointer"/>`;
+    return s+`</g></svg>`;
+  }
+  function guitarSVG(){
+    const lab=(p,x,y,t)=>`<g data-label="${p}" hidden><rect x="${x-t.length*5.5-12}" y="${y-18}" width="${t.length*11+24}" height="28" rx="14" fill="var(--accent)"/><text x="${x}" y="${y+2}" text-anchor="middle" font-size="17" font-weight="800" fill="var(--accent-ink)" font-family="Fredoka,sans-serif">${t}</text></g>`;
+    let pegs="";[30,52,74].forEach(x=>{pegs+=`<circle cx="${x}" cy="94" r="8" fill="#C9CED6"/><circle cx="${x}" cy="176" r="8" fill="#C9CED6"/>`});
+    let frets="";for(let i=1;i<=6;i++)frets+=`<rect x="${92+i*34}" y="113" width="3" height="44" fill="#C9CED6"/>`;
+    let str="";for(let k=0;k<6;k++)str+=`<line x1="88" x2="528" y1="${119+k*6.4}" y2="${119+k*6.4}" stroke="#E8E2D6" stroke-width="${1+k*.3}"/>`;
+    return `<svg viewBox="0 0 600 270" role="img" aria-label="Whole guitar">
+      <g data-part="body"><ellipse cx="385" cy="135" rx="78" ry="82" fill="var(--wood)"/><ellipse cx="500" cy="135" rx="90" ry="104" fill="var(--wood)"/></g>
+      <g data-part="head"><rect x="14" y="100" width="76" height="70" rx="16" fill="var(--wood-dark)"/>${pegs}</g>
+      <g data-part="neck"><rect x="88" y="112" width="232" height="46" fill="var(--wood-dark)"/>${frets}</g>
+      <g data-part="soundhole"><circle cx="410" cy="135" r="32" fill="#2A1608"/></g>
+      <g data-part="bridge"><rect x="522" y="106" width="20" height="58" rx="5" fill="var(--wood-dark)"/></g>
+      <g style="pointer-events:none">${str}</g>
+      ${lab("head",52,62,"Head")}${lab("neck",204,94,"Neck")}${lab("body",530,262,"Body")}${lab("soundhole",410,38,"Sound hole")}${lab("bridge",532,92,"Bridge")}</svg>`;
+  }
+  function handSVG(){
+    const F=[[1,226,52],[2,262,30],[3,298,48],[4,334,78]];
+    let s=`<svg viewBox="0 0 600 270" role="img" aria-label="A hand with numbered fingers"><rect x="214" y="140" width="160" height="118" rx="38" fill="#F2C9A0"/>`;
+    s+=`<g data-finger="0" style="cursor:pointer"><rect x="150" y="150" width="34" height="96" rx="17" transform="rotate(-38 167 198)" fill="#F2C9A0"/><text x="148" y="166" text-anchor="middle" font-size="22" font-weight="800" fill="var(--ink)" font-family="Fredoka,sans-serif">T</text></g>`;
+    F.forEach(([n,x,y])=>{s+=`<g data-finger="${n}" style="cursor:pointer"><rect x="${x}" y="${y}" width="32" height="${170-y}" rx="16" fill="#F2C9A0" stroke="#D9A97A" stroke-width="2"/><circle cx="${x+16}" cy="${y+22}" r="15" fill="var(--s${[0,2,3,4,5][n]})" data-dot hidden/><text x="${x+16}" y="${y+29}" text-anchor="middle" font-size="20" font-weight="800" fill="#fff" font-family="Fredoka,sans-serif" data-num hidden>${n}</text></g>`});
+    return s+`</svg>`;
+  }
+  function beatSVG(n){let s=`<svg viewBox="0 0 600 270" role="img" aria-label="Beat circles">`;const gap=600/(n+1);
+    for(let i=0;i<n;i++)s+=`<g data-beat="${i}"><circle cx="${gap*(i+1)}" cy="135" r="${n>3?52:60}" fill="var(--bg)" stroke="var(--line)" stroke-width="6"/><text x="${gap*(i+1)}" y="152" text-anchor="middle" font-size="48" font-weight="700" fill="var(--ink)" font-family="Fredoka,sans-serif">${i+1}</text></g>`;
+    return s+`</svg>`}
+  function mascotSVG(){return `<svg viewBox="0 0 600 270" role="img" aria-label="Picky the guitar pick"><g transform="translate(225 20) scale(1.5)" class="bigpick">${mascotEl.innerHTML}</g><g fill="var(--s4)"><path d="M130 70l6 14 15 2-11 10 3 15-13-7-13 7 3-15-11-10 15-2z"/><path d="M470 150l5 11 12 2-9 8 2 12-10-6-10 6 2-12-9-8 12-2z"/></g></svg>`}
+
+  // ---------- Neck helpers ----------
+  const q=sel=>stageEl.querySelector(sel);
+  function setShape(name,dots,mute){
+    const st={fr:{},mute:new Set(mute||[]),fi:{}};
+    if(name){const c=CHORDS.find(x=>x.n===name);c.f.forEach((v,i)=>{const s=6-i;if(v<0)st.mute.add(s);else if(v>0){st.fr[s]=v;st.fi[s]=c.fi[i]}})}
+    (dots||[]).forEach(([s,f,fi])=>{st.fr[s]=f;st.fi[s]=fi});
+    PL.shape=st;drawShape(!!name);
+  }
+  function drawShape(marks){
+    const g=q("#nkDots"),mk=q("#nkMarks");if(!g)return;g.innerHTML="";mk.innerHTML="";
+    Object.keys(PL.shape.fr).forEach(s=>{s=+s;g.appendChild(dotEl(s,PL.shape.fr[s],PL.shape.fi[s]))});
+    if(marks)for(let s=1;s<=6;s++){if(PL.shape.mute.has(s))mk.insertAdjacentHTML("beforeend",`<text x="40" y="${sy(s)+6}" text-anchor="middle" font-size="18" font-weight="800" fill="var(--muted)" font-family="Nunito,sans-serif">X</text>`);
+      else if(!PL.shape.fr[s])mk.insertAdjacentHTML("beforeend",`<circle cx="40" cy="${sy(s)}" r="8" fill="none" stroke="var(--ink)" stroke-width="2.5"/>`)}
+  }
+  function dotEl(s,f,label,target){const g=document.createElementNS(NS,"g");g.setAttribute("class","pop");
+    if(f===0){g.innerHTML=`<circle cx="40" cy="${sy(s)}" r="13" fill="none" stroke="var(--s${s})" stroke-width="4"/>`}
+    else g.innerHTML=`<circle cx="${fx(f)}" cy="${sy(s)}" r="15" fill="var(--s${s})" stroke="${target?"var(--ink)":"none"}" stroke-width="3"/><text x="${fx(f)}" y="${sy(s)+6}" text-anchor="middle" font-size="16" font-weight="800" fill="#fff" font-family="Nunito,sans-serif">${label??""}</text>`;
+    if(target)g.classList.add("pulse");return g}
+  function vib(s){const l=q(`line[data-s="${s}"]`);if(!l)return;l.classList.remove("vib");void l.getBoundingClientRect();l.classList.add("vib")}
+  function playNote(s,f,vol){const a=ac();vib(s);if(a)pluck(noteF(s,f),a.currentTime,vol||.32)}
+  function strumOnce(dir,vol){const a=ac();const st=PL.shape;let list=[];for(let s=6;s>=1;s--)if(!st.mute.has(s))list.push(s);
+    if(dir==="U")list=list.filter(s=>s<=3).reverse();
+    const pk=q("#nkPick");if(pk){pk.style.transition="none";pk.style.transform=`translateY(${dir==="U"?175:0}px)`;void pk.getBoundingClientRect();pk.style.transition="transform .14s ease-in";pk.style.transform=`translateY(${dir==="U"?0:175}px)`}
+    list.forEach((s,k)=>{vib(s);if(a)pluck(noteF(s,st.fr[s]||0),a.currentTime+k*.022,(vol||.26)*(dir==="U"?.7:1))})}
+  function setKara(words){kara.innerHTML=words.map(w=>`<span>${w}</span>`).join("")}
+  function hiKara(i){[...kara.children].forEach((c,k)=>c.classList.toggle("now",k===i))}
+
+  // ---------- Stage + chrome ----------
+  function setupStage(S){
+    const m=S.m||"neck";
+    stageEl.innerHTML=m==="neck"?neckSVG():m==="guitar"?guitarSVG():m==="hand"?handSVG():m==="beat"?beatSVG(S.act?.n||4):mascotSVG();
+    kara.innerHTML="";actEl.innerHTML="";PL.onString=null;
+    if(m==="neck")setShape(S.shape,S.dots);
+    if(m==="guitar"&&S.part){q(`[data-part="${S.part}"]`).classList.add("hl");q(`[data-label="${S.part}"]`).removeAttribute('hidden')}
+  }
+  stageEl.addEventListener("click",e=>{
+    const h=e.target.closest("[data-hit]");if(h&&PL.onString){PL.onString(+h.dataset.hit);return}
+    if(h&&!PL.onString){playNote(+h.dataset.hit,PL.shape.fr[+h.dataset.hit]||0,.25);return}
+    const p=e.target.closest("[data-part]");if(p&&PL.onPart){PL.onPart(p.dataset.part);return}
+    const f=e.target.closest("[data-finger]");if(f&&PL.onFinger){PL.onFinger(+f.dataset.finger)}
+  });
+  function chrome(){
+    const L=LESSONS[PL.wi];$("plTitle").textContent=`Week ${PL.wi+1}: ${WEEKS[PL.wi].t}`;$("plStep").textContent=`Scene ${PL.i+1} of ${L.length}`;
+    $("plPrev").disabled=PL.i===0;$("plNext").textContent=PL.i===L.length-1?"Finish":"Next";
+    $("plPlay").textContent=PL.playing?"Pause":"Play";$("plPaused").hidden=PL.playing;
+    $("plVoice").textContent=PL.voice?"Voice on":"Voice off";
+    $("plDots").innerHTML=L.map((_,k)=>`<button type="button" data-go="${k}" class="${k<PL.i?"past":k===PL.i?"cur":""}" aria-label="Scene ${k+1}"></button>`).join("");
+  }
+  function openLesson(wi){PL.lastFocus=document.activeElement;PL.wi=wi;PL.i=0;PL.playing=true;ov.removeAttribute('hidden');document.body.style.overflow="hidden";ac();try{speechSynthesis&&speechSynthesis.getVoices()}catch(e){}runScene();$("plClose").focus()}
+  function closeLesson(){stopAll();ov.hidden=true;document.body.style.overflow="";renderVids();if(PL.lastFocus)PL.lastFocus.focus()}
+  function go(i){const L=LESSONS[PL.wi];if(i<0)return;if(i>=L.length){closeLesson();return}PL.i=i;PL.playing=true;runScene()}
+  $("plClose").onclick=closeLesson;$("plPrev").onclick=()=>go(PL.i-1);$("plNext").onclick=()=>go(PL.i+1);
+  $("plPlay").onclick=()=>{if(PL.playing){PL.playing=false;stopAll();chrome()}else{PL.playing=true;runScene()}};
+  $("plPaused").onclick=()=>{PL.playing=true;runScene()};
+  $("plVoice").onclick=()=>{PL.voice=!PL.voice;store.set("lsgq.voice",PL.voice);if(!PL.voice)try{speechSynthesis.cancel()}catch(e){}chrome()};
+  $("plDots").onclick=e=>{const b=e.target.closest("[data-go]");if(b)go(+b.dataset.go)};
+  ov.addEventListener("keydown",e=>{if(e.key==="Escape")closeLesson()});
+
+  async function runScene(){
+    stopAll();const tok=PL.tok;const L=LESSONS[PL.wi],S=L[PL.i];
+    setupStage(S);chrome();const text=fill(S.say);bubble.textContent=text;
+    if(!PL.playing)return;
+    try{
+      mascotEl.classList.add("talk");q(".bigpick")?.classList.add("talk");
+      await speak(text,tok);
+      mascotEl.classList.remove("talk");q(".bigpick")?.classList.remove("talk");
+      if(S.act)await runAct(S.act,tok);
+      if(PL.i===L.length-1)return;
+      await wait(S.act&&/find|tap|follow|quiz|check|strumAlong/.test(S.act.t)?1400:900,tok);
+      go(PL.i+1);
+    }catch(e){if(e!==CANCEL)console.error(e)}
+  }
+
+  // ---------- Actions ----------
+  async function runAct(A,tok){
+    const bpmMs=b=>60000/b;
+    switch(A.t){
+    case "pluck":{
+      if(A.seq.some(n=>n[2]))setKara(A.seq.map(n=>n[2]||""));
+      const g=q("#nkDots");
+      for(let k=0;k<A.seq.length;k++){const [s,f]=A.seq[k];let d=null;
+        if(f>0&&PL.shape.fr[s]!==f){d=dotEl(s,f,f);g.appendChild(d)}else if(f===0&&!PL.shape.fr[s]){d=dotEl(s,0);g.appendChild(d)}
+        playNote(s,f);hiKara(k);await wait(bpmMs(A.bpm||70),tok);if(d&&!A.keep)d.remove()}
+      hiKara(-1);return}
+    case "strum":{const pat=A.pattern||[["D",1]];for(let r=0;r<(A.reps||1);r++)for(const [d,b] of pat){strumOnce(d,A.vol);await wait(bpmMs(A.bpm||60)*b,tok)}return}
+    case "prog":{for(const [ch,ly,beats] of A.bars){setShape(ch);setKara(ly?[ly]:[ch]);hiKara(0);for(let b=0;b<beats;b++){strumOnce("D");await wait(bpmMs(A.bpm),tok)}}hiKara(-1);return}
+    case "count":{const els=[...stageEl.querySelectorAll("[data-beat] circle")];const a=ac();
+      for(let b=0;b<A.n*A.bars;b++){const i=b%A.n;els.forEach((c,k)=>{c.setAttribute("fill",k===i?"var(--accent)":"var(--bg)");c.setAttribute("stroke",k===i?"var(--accent)":"var(--line)")});
+        if(a)metroClick(i===0);await wait(bpmMs(A.bpm),tok)}
+      els.forEach(c=>{c.setAttribute("fill","var(--bg)");c.setAttribute("stroke","var(--line)")});return}
+    case "handCount":{for(let n=1;n<=4;n++){const g=q(`[data-finger="${n}"]`);g.querySelector("[data-dot]").removeAttribute('hidden');g.querySelector("[data-num]").removeAttribute('hidden');g.classList.add("pop");boop();await wait(650,tok)}return}
+    case "celebrate":{cheer();confetti();watched[PL.wi]=1;store.set("lsgq.watched",watched);
+      actEl.innerHTML=`<button type="button" class="btn" id="plAgain">Watch again</button><button type="button" class="btn ghost" id="plDone">Back to the plan</button>`;
+      $("plAgain").onclick=()=>go(0);$("plDone").onclick=closeLesson;return}
+    }
+    // interactive actions resolve when she finishes
+    return new Promise(res=>{
+      const done=()=>{if(tok!==PL.tok)return;cheer();res()};
+      if(A.t==="tapString"){const l=q(`line[data-s="${A.s}"]`);l.classList.add("pulse");
+        PL.onString=s=>{if(s===A.s){l.classList.remove("pulse");playNote(s,0);PL.onString=null;bubble.textContent="Yes! You found it!";done()}else{playNote(s,0,.15);bubble.textContent="That one is the "+LET[s]+" string. Try again!"}}}
+      else if(A.t==="follow"){const seq=A.seq;let k=0;const g=q("#nkDots");let tgt=null;if(seq.some(n=>n[2]))setKara(seq.map(n=>n[2]||""));
+        const show=()=>{if(tgt)tgt.remove();const [s,f]=seq[k];tgt=dotEl(s,f,f||"",true);g.appendChild(tgt);hiKara(k)};show();
+        PL.onString=s=>{const [ts,tf]=seq[k];if(s===ts){playNote(s,tf);k++;if(k>=seq.length){tgt.remove();hiKara(-1);PL.onString=null;bubble.textContent="You played it all! Amazing!";done()}else show()}else{playNote(s,0,.12);tgt.classList.remove("shake");void tgt.getBoundingClientRect();tgt.classList.add("shake")}}}
+      else if(A.t==="findPart"){PL.onPart=p=>{const el=q(`[data-part="${p}"]`);if(p===A.part){el.classList.add("hl");q(`[data-label="${p}"]`).removeAttribute('hidden');PL.onPart=null;bubble.textContent="You found it!";done()}else{q(`[data-label="${p}"]`).removeAttribute('hidden');bubble.textContent="That's the "+(p==="soundhole"?"sound hole":p)+". Try again!";boop()}}}
+      else if(A.t==="findFinger"){PL.onFinger=n=>{const g=q(`[data-finger="${n}"]`);if(n===A.f){g.querySelector("[data-dot]")&&(g.querySelector("[data-dot]").removeAttribute('hidden'),g.querySelector("[data-num]").removeAttribute('hidden'));g.classList.add("pop");PL.onFinger=null;bubble.textContent="That's finger "+n+"! Great!";done()}else{bubble.textContent=n===0?"That's your thumb. Try again!":"That's finger "+n+". Try again!";boop();if(n>0){g.querySelector("[data-dot]").removeAttribute('hidden');g.querySelector("[data-num]").removeAttribute('hidden')}}}}
+      else if(A.t==="quiz"){actEl.innerHTML=A.choices.map((c,k)=>`<button type="button" class="choice" data-k="${k}">${c}</button>`).join("");
+        actEl.onclick=e=>{const b=e.target.closest(".choice");if(!b||b.disabled)return;if(+b.dataset.k===A.a){b.classList.add("right");actEl.querySelectorAll(".choice").forEach(x=>x.disabled=true);bubble.textContent="That's right!";actEl.onclick=null;done()}else{b.classList.add("wrong");b.disabled=true;bubble.textContent="Almost! Try another one.";boop()}}}
+      else if(A.t==="check"){actEl.innerHTML=A.items.map((it,k)=>`<label class="checkitem" for="ck${k}"><input type="checkbox" id="ck${k}">${it}</label>`).join("");
+        actEl.onchange=()=>{const all=[...actEl.querySelectorAll("input")];if(all.every(x=>x.checked)){actEl.onchange=null;bubble.textContent="All done! You look like a real guitar player.";done()}}}
+      else if(A.t==="strumAlong"){
+        actEl.innerHTML=(A.bpm?`<div class="mini-beats">${"<i></i>".repeat(4)}</div>`:"")+`<button type="button" class="btn strum-btn" id="plStrum">Strum!</button><p class="status" id="plStat">${A.bpm?"Get ready...":`0 of ${A.n} strums`}</p>`;
+        const stat=$("plStat"),dots=[...actEl.querySelectorAll(".mini-beats i")];let taps=[],beatTimes=[],live=true;
+        const tap=()=>{if(!live)return;strumOnce("D");taps.push(performance.now());if(!A.bpm){stat.textContent=`${taps.length} of ${A.n} strums`;if(taps.length>=A.n){live=false;stat.textContent="Great strumming!";done()}}};
+        $("plStrum").addEventListener("pointerdown",e=>{e.preventDefault();tap()});
+        $("plStrum").addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();tap()}});
+        PL.onString=()=>tap();
+        if(A.bpm){(async()=>{try{const ms=60000/A.bpm;
+          for(let i=0;i<4;i++){stat.textContent=["Ready","Set","Get set","Go!"][i];dots.forEach((d,k)=>d.classList.toggle("on",k===i));metroClick(i===0);await wait(ms,tok)}
+          taps=[];stat.textContent="Strum on the lights!";
+          for(let b=0;b<A.n;b++){beatTimes.push(performance.now());dots.forEach((d,k)=>d.classList.toggle("on",k===b%4));metroClick(b%4===0);await wait(ms,tok)}
+          dots.forEach(d=>d.classList.remove("on"));live=false;PL.onString=null;
+          const good=beatTimes.filter(t=>taps.some(x=>Math.abs(x-t)<220)).length;
+          stat.textContent=good>=A.n*.6?`${good} of ${A.n} right on the beat. Super!`:taps.length?`${good} of ${A.n} on the beat. Press Back to try again!`:"You can strum your real guitar too. Press Next when you're done!";
+          done()}catch(e){if(e!==CANCEL)console.error(e)}})()}}
+    });
+  }
+  function metroClick(acc){const a=ac();if(!a)return;const o=a.createOscillator(),g=a.createGain();o.frequency.value=acc?1500:1000;g.gain.setValueAtTime(.25,a.currentTime);g.gain.exponentialRampToValueAtTime(.001,a.currentTime+.06);o.connect(g).connect(a.destination);o.start();o.stop(a.currentTime+.07)}
+  function confetti(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;const c=$("plConfetti");const cols=["--s1","--s2","--s3","--s4","--s5","--s6"];
+    c.innerHTML=Array.from({length:44},(_,i)=>`<i style="left:${Math.random()*100}%;--c:var(${cols[i%6]});--d:${1.6+Math.random()*1.4}s;animation-delay:${Math.random()*.6}s"></i>`).join("")}
 })();
 </script>
